@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ConfigModule } from '@nestjs/config';
-import configuration from '../config/configuration';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { APP_PIPE } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ZodValidationPipe } from 'nestjs-zod';
+import configuration from '../config/configuration';
 import { Supplier } from './supplier/supplier.entity';
 import { SupplierModule } from './supplier/supplier.module';
 
@@ -11,20 +11,29 @@ import { SupplierModule } from './supplier/supplier.module';
   imports: [
     ConfigModule.forRoot({
       load: [configuration],
+      isGlobal: true,
     }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'medi-track',
-      entities: [Supplier],
-      synchronize: true,
+    TypeOrmModule.forRootAsync({
+      useFactory: async (configService: ConfigService) => ({
+        type: 'postgres',
+        host: configService.get('dataSource.host') || 'localhost',
+        port: configService.get('dataSource.port') || 5432,
+        username: configService.get('dataSource.username') || 'postgres',
+        password: configService.get('dataSource.password') || 'postgres',
+        database: configService.get('dataSource.database') || 'medi-track',
+        schema: configService.get('dataSource.schema') || 'public',
+        entities: [Supplier],
+        synchronize: true,
+      }),
+      inject: [ConfigService],
     }),
     SupplierModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    {
+      provide: APP_PIPE,
+      useClass: ZodValidationPipe,
+    },
+  ],
 })
 export class AppModule {}

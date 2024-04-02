@@ -1,5 +1,9 @@
 server:
   port: 8080
-database:
+dataSource:
   host: localhost
   port: 5432
+  username: postgres
+  password: postgres
+  schema: public
+  database: medi-track
