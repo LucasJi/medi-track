@@ -47,6 +47,7 @@ export const ORG_LIST = [
 /**
  * User permission mock
  */
+/** 面板权限 */
 const DASHBOARD_PERMISSION = {
   id: '9100714781927703',
   parentId: '',
@@ -66,17 +67,18 @@ const DASHBOARD_PERMISSION = {
       route: 'workbench',
       component: '/dashboard/workbench/index.tsx',
     },
-    {
-      id: '9710971640510357',
-      parentId: '9100714781927703',
-      label: 'sys.menu.analysis',
-      name: 'Analysis',
-      type: PermissionType.MENU,
-      route: 'analysis',
-      component: '/dashboard/analysis/index.tsx',
-    },
+    // {
+    //   id: '9710971640510357',
+    //   parentId: '9100714781927703',
+    //   label: 'sys.menu.analysis',
+    //   name: 'Analysis',
+    //   type: PermissionType.MENU,
+    //   route: 'analysis',
+    //   component: '/dashboard/analysis/index.tsx',
+    // },
   ],
 };
+/** 管理权限 */
 const MANAGEMENT_PERMISSION = {
   id: '0901673425580518',
   parentId: '',
@@ -173,6 +175,7 @@ const MANAGEMENT_PERMISSION = {
     },
   ],
 };
+/** */
 const COMPONENTS_PERMISSION = {
   id: '2271615060673773',
   parentId: '',
@@ -475,11 +478,11 @@ const OTHERS_PERMISSION = [
 export const PERMISSION_LIST = [
   DASHBOARD_PERMISSION,
   MANAGEMENT_PERMISSION,
-  COMPONENTS_PERMISSION,
-  FUNCTIONS_PERMISSION,
-  MENU_LEVEL_PERMISSION,
-  ERRORS_PERMISSION,
-  ...OTHERS_PERMISSION,
+  // COMPONENTS_PERMISSION,
+  // FUNCTIONS_PERMISSION,
+  // MENU_LEVEL_PERMISSION,
+  // ERRORS_PERMISSION,
+  // ...OTHERS_PERMISSION,
 ];
 
 /**

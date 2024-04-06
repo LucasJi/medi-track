@@ -1,3 +1,4 @@
+// @ts-ignore
 import { Suspense, lazy } from 'react';
 import { Outlet } from 'react-router-dom';
 

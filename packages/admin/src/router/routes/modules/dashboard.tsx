@@ -7,7 +7,7 @@ import { CircleLoading } from '@/components/loading';
 import { AppRouteObject } from '#/router';
 
 const HomePage = lazy(() => import(`@/pages/dashboard/workbench`));
-const Analysis = lazy(() => import('@/pages/dashboard/analysis'));
+// const Analysis = lazy(() => import('@/pages/dashboard/analysis'));
 
 const dashboard: AppRouteObject = {
   order: 1,
@@ -32,11 +32,12 @@ const dashboard: AppRouteObject = {
       element: <HomePage />,
       meta: { label: 'sys.menu.workbench', key: '/dashboard/workbench' },
     },
-    {
-      path: 'analysis',
-      element: <Analysis />,
-      meta: { label: 'sys.menu.analysis', key: '/dashboard/analysis' },
-    },
+    // todo: 先不要分析面板
+    // {
+    //   path: 'analysis',
+    //   element: <Analysis />,
+    //   meta: { label: 'sys.menu.analysis', key: '/dashboard/analysis' },
+    // },
   ],
 };
 

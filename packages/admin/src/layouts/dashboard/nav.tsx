@@ -36,6 +36,7 @@ export default function Nav(props: Props) {
 
   const routeToMenuFn = useRouteToMenuFn();
   const permissionRoutes = usePermissionRoutes();
+
   // 获取拍平后的路由菜单
   const flattenedRoutes = useFlattenedRoutes();
 
@@ -61,6 +62,8 @@ export default function Nav(props: Props) {
   useEffect(() => {
     const menuRoutes = menuFilter(permissionRoutes);
     const menus = routeToMenuFn(menuRoutes);
+    console.log(menus);
+
     setMenuList(menus);
   }, [permissionRoutes, routeToMenuFn]);
 
