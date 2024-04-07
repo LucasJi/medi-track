@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { SupplierDto } from 'src/dto/supplier.dto';
 import { Repository } from 'typeorm';
 import { Supplier } from './supplier.entity';
 
@@ -10,7 +11,7 @@ export class SupplierService {
     private supplierRepository: Repository<Supplier>,
   ) {}
 
-  save(supplier: Supplier): Promise<Supplier> {
+  save(supplier: SupplierDto): Promise<Supplier> {
     return this.supplierRepository.save(supplier);
   }
 
