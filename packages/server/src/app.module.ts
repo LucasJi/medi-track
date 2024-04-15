@@ -6,6 +6,8 @@ import { ZodValidationPipe } from 'nestjs-zod';
 import configuration from '../config/configuration';
 import { Supplier } from './supplier/supplier.entity';
 import { SupplierModule } from './supplier/supplier.module';
+import { MenuModule } from './menu/menu.module';
+import { Menu } from './menu/menu.entity';
 
 @Module({
   imports: [
@@ -22,12 +24,13 @@ import { SupplierModule } from './supplier/supplier.module';
         password: configService.get('dataSource.password') || 'postgres',
         database: configService.get('dataSource.database') || 'medi-track',
         schema: configService.get('dataSource.schema') || 'public',
-        entities: [Supplier],
+        entities: [Supplier, Menu],
         synchronize: true,
       }),
       inject: [ConfigService],
     }),
     SupplierModule,
+    MenuModule,
   ],
   providers: [
     {

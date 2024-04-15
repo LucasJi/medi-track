@@ -24,6 +24,7 @@ async function bootstrap() {
     .setDescription('Medi Track Apis')
     .setVersion('1.0')
     .addTag('supplier')
+    .addTag('menu')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

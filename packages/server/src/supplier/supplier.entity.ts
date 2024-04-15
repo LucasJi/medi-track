@@ -12,7 +12,6 @@ export class Supplier extends Audit {
   @Column({
     type: 'varchar',
     length: 64,
-    nullable: false,
     name: 'phone',
     comment: '电话',
   })
@@ -21,7 +20,6 @@ export class Supplier extends Audit {
   @Column({
     type: 'varchar',
     length: 128,
-    nullable: false,
     name: 'company_name',
     comment: '单位名',
   })
@@ -30,7 +28,6 @@ export class Supplier extends Audit {
   @Column({
     type: 'varchar',
     length: '512',
-    nullable: false,
     name: 'address',
     comment: '地址',
   })
@@ -39,7 +36,6 @@ export class Supplier extends Audit {
   @Column({
     type: 'varchar',
     length: '64',
-    nullable: false,
     name: 'contact',
     comment: '联系人',
   })
@@ -48,7 +44,6 @@ export class Supplier extends Audit {
   @Column({
     type: 'boolean',
     name: 'class_one_business',
-    nullable: false,
     comment: '一类经营',
   })
   classOneBusiness: boolean;
