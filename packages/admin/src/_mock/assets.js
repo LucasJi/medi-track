@@ -474,10 +474,33 @@ const OTHERS_PERMISSION = [
     component: '/sys/others/blank.tsx',
   },
 ];
-
+/** mock 供应商权限 */
+const SUPPLIER_PERMISSION = {
+  id: '0901673425123726',
+  parentId: '',
+  label: '首营供应管理',
+  name: 'Supplier',
+  icon: 'ic-management',
+  type: PermissionType.CATALOGUE,
+  route: 'supplier',
+  order: 2,
+  children: [
+    {
+      id: '0901673425112377',
+      parentId: '0901673425123726',
+      label: '供应商管理',
+      name: 'supplierManage',
+      icon: 'ic-management',
+      type: PermissionType.MENU,
+      route: 'supplierManage',
+      component: '/supplier/supplierManage/index.tsx',
+    },
+  ],
+};
 export const PERMISSION_LIST = [
   DASHBOARD_PERMISSION,
   MANAGEMENT_PERMISSION,
+  SUPPLIER_PERMISSION,
   // COMPONENTS_PERMISSION,
   // FUNCTIONS_PERMISSION,
   // MENU_LEVEL_PERMISSION,
