@@ -10,8 +10,8 @@ const fileList: UploadFile[] = [
     thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   },
 ];
-/** 新增/编辑供应商 */
-export default function AddSupplier() {
+/** 新增/编辑经销商 */
+export default function AddSale() {
   return (
     <Form layout="vertical">
       <Row gutter={16}>
@@ -37,11 +37,11 @@ export default function AddSupplier() {
         </Col>
         <Col span={6}>
           <Form.Item
-            label="供应商名"
+            label="经销商名"
             name="supplier"
-            rules={[{ required: true, message: '请输入供应商名' }]}
+            rules={[{ required: true, message: '请输入经销商名' }]}
           >
-            <Input placeholder="请输入供应商名" />
+            <Input placeholder="请输入经销商名" />
           </Form.Item>
         </Col>
         <Col span={6}>
@@ -86,6 +86,16 @@ export default function AddSupplier() {
         <Col span={8}>
           <Form.Item label="Ⅲ类许可证号">
             <Input placeholder="具备Ⅲ类许可时填写" />
+          </Form.Item>
+        </Col>
+        <Col span={8}>
+          <Form.Item label="经销类型">
+            <Select
+              options={[
+                { label: '自营', value: 0 },
+                { label: '代理', value: 1 },
+              ]}
+            />
           </Form.Item>
         </Col>
       </Row>
@@ -149,6 +159,18 @@ export default function AddSupplier() {
       <Row>
         <Col span={12}>
           <Form.Item label="二类备案许可">
+            <Upload
+              action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+              listType="picture"
+              defaultFileList={[...fileList]}
+              className="upload-list-inline"
+            >
+              <Button icon={<UploadOutlined />}>上传</Button>
+            </Upload>
+          </Form.Item>
+        </Col>
+        <Col span={12}>
+          <Form.Item label="医疗机构证明">
             <Upload
               action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
               listType="picture"

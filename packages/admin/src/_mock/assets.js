@@ -495,6 +495,26 @@ const SUPPLIER_PERMISSION = {
       route: 'supplierManage',
       component: '/supplier/supplierManage/index.tsx',
     },
+    {
+      id: '0901673425112378',
+      parentId: '0901673425123726',
+      label: '产品管理',
+      name: 'productManage',
+      icon: 'ic-management',
+      type: PermissionType.MENU,
+      route: 'productManage',
+      component: '/supplier/productManage/index.tsx',
+    },
+    {
+      id: '0901673425112379',
+      parentId: '0901673425123726',
+      label: '经销商管理',
+      name: 'saleManage',
+      icon: 'ic-management',
+      type: PermissionType.MENU,
+      route: 'saleManage',
+      component: '/supplier/saleManage/index.tsx',
+    },
   ],
 };
 export const PERMISSION_LIST = [

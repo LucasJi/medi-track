@@ -70,7 +70,6 @@ function transformPermissionToMenuRoutes(
       parentId,
       children = [],
     } = permission;
-
     const appRoute: AppRouteObject = {
       path: route,
       meta: {

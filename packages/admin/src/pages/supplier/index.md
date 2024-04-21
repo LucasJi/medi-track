@@ -3,4 +3,4 @@
 - supplierManange
 #### 供应产品管理
 - productManage
-#### 销售商管理
+#### 经销商管理

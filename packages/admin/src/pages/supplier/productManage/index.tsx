@@ -1,33 +1,36 @@
-import { Form, Input, Button, Table, Space, Drawer } from 'antd';
+import { Button, Drawer, Form, Input, Space, Table } from 'antd';
 import { useState } from 'react';
 
-import { TablePaginationPosition } from '@/type/pagination';
-
-import AddSupplier from '../static/addSupplier';
+import AddProduct from '../static/addProduct';
 
 type FieldType = {
-  supplierName?: string;
+  productName?: string;
   phoneNumber?: string;
   remember?: string;
 };
 const columns = [
   {
-    title: '系统编码',
-    dataIndex: 'id',
+    title: '产品名称',
+    dataIndex: 'productName',
     valueType: 'textarea',
   },
   {
-    title: '单位名称',
-    dataIndex: 'deptName',
+    title: '规格型号',
+    dataIndex: 'format',
   },
   {
-    title: '电话',
-    dataIndex: 'phoneNumber',
+    title: '生产厂家',
+    dataIndex: 'supplier',
     valueType: 'textarea',
   },
   {
-    title: '单位地址',
-    dataIndex: 'produceAddress',
+    title: '单位',
+    dataIndex: 'unit',
+    valueType: 'textarea',
+  },
+  {
+    title: '价格',
+    dataIndex: 'price',
     valueType: 'textarea',
   },
   {
@@ -42,10 +45,7 @@ const columns = [
     ],
   },
 ];
-/** 供应商管理 */
-export default function SupplierManage() {
-  const [top, setTop] = useState<TablePaginationPosition>('topLeft');
-  const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
+export default function ProductManage() {
   const [openState, setOpenState] = useState(false);
   const showDrawer = () => {
     setOpenState(true);
@@ -65,36 +65,22 @@ export default function SupplierManage() {
         autoComplete="off"
       >
         <Form.Item<FieldType>
-          label="供应商名称"
-          name="supplierName"
-          rules={[{ required: false, message: '请输入供应商名称' }]}
+          label="产品名称"
+          name="productName"
+          rules={[{ required: false, message: '请输入产品名称' }]}
         >
-          <Input placeholder="请输入供应商" />
-        </Form.Item>
-
-        <Form.Item<FieldType>
-          label="联系人"
-          name="phoneNumber"
-          rules={[{ required: false, message: '请输入联系人电话' }]}
-        >
-          <Input placeholder="请输入电话" />
-        </Form.Item>
-
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            搜索
-          </Button>
+          <Input placeholder="请输入产品名" />
         </Form.Item>
       </Form>
       <Space className="p-4">
         <Button onClick={showDrawer} type="primary">
-          新建首营供应商
+          新建首营产品
         </Button>
       </Space>
-      <Table columns={columns} pagination={{ position: [top, bottom] }} />
+      <Table columns={columns} />
       <Drawer
-        title="新建首营供应商"
-        width={920}
+        title="新建首营产品"
+        width={1020}
         onClose={onClose}
         open={openState}
         style={{
@@ -109,8 +95,8 @@ export default function SupplierManage() {
           </Space>
         }
       >
-        {/** 供应商表单 */}
-        <AddSupplier />
+        {/** 产品表单 */}
+        <AddProduct />
       </Drawer>
     </div>
   );

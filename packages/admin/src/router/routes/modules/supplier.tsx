@@ -7,6 +7,8 @@ import { CircleLoading } from '@/components/loading';
 import { AppRouteObject } from '#/router';
 
 const HomePage = lazy(() => import(`@/pages/supplier/supplierManage`));
+const ProductManage = lazy(() => import(`@/pages/supplier/productManage`));
+const SaleManage = lazy(() => import(`@/pages/supplier/saleManage`));
 const supplier: AppRouteObject = {
   order: 1,
   path: 'supplier',
@@ -29,6 +31,16 @@ const supplier: AppRouteObject = {
       path: 'supplierManage',
       element: <HomePage />,
       meta: { label: 'sys.menu.supplierManage', key: '/supplier/supplierManage' },
+    },
+    {
+      path: 'saleManage',
+      element: <SaleManage />,
+      meta: { hideMenu: false, label: 'sys.menu.saleManage', key: '/supplier/saleManage' },
+    },
+    {
+      path: 'productManage',
+      element: <ProductManage />,
+      meta: { hideMenu: false, label: 'sys.menu.productManage', key: '/supplier/productManage' },
     },
   ],
 };

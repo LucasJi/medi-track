@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { TablePaginationPosition } from '@/type/pagination';
 
-import AddSupplier from '../static/addSupplier';
+import AddSale from '../static/addSale';
 
 type FieldType = {
   supplierName?: string;
@@ -42,7 +42,7 @@ const columns = [
     ],
   },
 ];
-/** 供应商管理 */
+/** 经销商管理 */
 export default function SupplierManage() {
   const [top, setTop] = useState<TablePaginationPosition>('topLeft');
   const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
@@ -65,11 +65,11 @@ export default function SupplierManage() {
         autoComplete="off"
       >
         <Form.Item<FieldType>
-          label="供应商名称"
+          label="经销商名称"
           name="supplierName"
-          rules={[{ required: false, message: '请输入供应商名称' }]}
+          rules={[{ required: false, message: '请输入经销商名称' }]}
         >
-          <Input placeholder="请输入供应商" />
+          <Input placeholder="请输入经销商" />
         </Form.Item>
 
         <Form.Item<FieldType>
@@ -88,12 +88,12 @@ export default function SupplierManage() {
       </Form>
       <Space className="p-4">
         <Button onClick={showDrawer} type="primary">
-          新建首营供应商
+          新建首营经销商
         </Button>
       </Space>
       <Table columns={columns} pagination={{ position: [top, bottom] }} />
       <Drawer
-        title="新建首营供应商"
+        title="新建首营经销商"
         width={920}
         onClose={onClose}
         open={openState}
@@ -109,8 +109,8 @@ export default function SupplierManage() {
           </Space>
         }
       >
-        {/** 供应商表单 */}
-        <AddSupplier />
+        {/** 经销商表单 */}
+        <AddSale />
       </Drawer>
     </div>
   );
