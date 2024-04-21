@@ -69,7 +69,7 @@ export default function SupplierManage() {
           name="productName"
           rules={[{ required: false, message: '请输入供应商名称' }]}
         >
-          <Input />
+          <Input placeholder="请输入供应商" />
         </Form.Item>
 
         <Form.Item<FieldType>
@@ -77,7 +77,7 @@ export default function SupplierManage() {
           name="phoneNumber"
           rules={[{ required: false, message: '请输入联系人电话' }]}
         >
-          <Input />
+          <Input placeholder="请输入电话" />
         </Form.Item>
 
         <Form.Item>
