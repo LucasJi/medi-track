@@ -1,7 +1,9 @@
-import { Form, Input, Button, Table, Space } from 'antd';
+import { Form, Input, Button, Table, Space, Drawer } from 'antd';
 import { useState } from 'react';
 
 import { TablePaginationPosition } from '@/type/pagination';
+
+import AddSupplier from '../static/addSupplier';
 
 type FieldType = {
   productName?: string;
@@ -44,6 +46,14 @@ const columns = [
 export default function SupplierManage() {
   const [top, setTop] = useState<TablePaginationPosition>('topLeft');
   const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
+  const [openState, setOpenState] = useState(false);
+  const showDrawer = () => {
+    setOpenState(true);
+  };
+
+  const onClose = () => {
+    setOpenState(false);
+  };
   return (
     <div>
       <Form
@@ -77,11 +87,31 @@ export default function SupplierManage() {
         </Form.Item>
       </Form>
       <Space className="p-4">
-        <Button onClick={() => setTop('topLeft')} type="primary">
+        <Button onClick={showDrawer} type="primary">
           新建供应商
         </Button>
       </Space>
       <Table columns={columns} pagination={{ position: [top, bottom] }} />
+      <Drawer
+        title="新建首营供应商"
+        width={920}
+        onClose={onClose}
+        open={openState}
+        style={{
+          paddingBottom: 80,
+        }}
+        extra={
+          <Space>
+            <Button onClick={onClose}>取消</Button>
+            <Button onClick={onClose} type="primary">
+              提交
+            </Button>
+          </Space>
+        }
+      >
+        {/** 供应商表单 */}
+        <AddSupplier />
+      </Drawer>
     </div>
   );
 }
