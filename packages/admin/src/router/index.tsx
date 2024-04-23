@@ -7,7 +7,7 @@ import { usePermissionRoutes } from '@/router/hooks';
 import { ErrorRoutes } from '@/router/routes/error-routes';
 
 import { AppRouteObject } from '#/router';
-
+// 环境变量指定HOMEPAGE
 const { VITE_APP_HOMEPAGE: HOMEPAGE } = import.meta.env;
 const LoginRoute: AppRouteObject = {
   path: '/login',
@@ -19,7 +19,9 @@ const PAGE_NOT_FOUND_ROUTE: AppRouteObject = {
 };
 
 export default function Router() {
+  /** 鉴权路由 */
   const permissionRoutes = usePermissionRoutes();
+
   const asyncRoutes: AppRouteObject = {
     path: '/',
     element: (
@@ -31,6 +33,7 @@ export default function Router() {
   };
 
   const routes = [LoginRoute, asyncRoutes, ErrorRoutes, PAGE_NOT_FOUND_ROUTE];
+  console.log(routes);
 
   const router = createHashRouter(routes as unknown as RouteObject[]);
 

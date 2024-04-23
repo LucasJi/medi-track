@@ -1,5 +1,5 @@
-import path from 'path';
 
+import path from 'path';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
@@ -34,7 +34,7 @@ export default defineConfig({
     // 自动打开浏览器
     open: true,
     host: true,
-    port: 3002,
+    port: 3011,
     proxy: {
       '/api': {
         target: 'http://localhost:3000',

@@ -47,6 +47,7 @@ export const ORG_LIST = [
 /**
  * User permission mock
  */
+/** 面板权限 */
 const DASHBOARD_PERMISSION = {
   id: '9100714781927703',
   parentId: '',
@@ -66,17 +67,18 @@ const DASHBOARD_PERMISSION = {
       route: 'workbench',
       component: '/dashboard/workbench/index.tsx',
     },
-    {
-      id: '9710971640510357',
-      parentId: '9100714781927703',
-      label: 'sys.menu.analysis',
-      name: 'Analysis',
-      type: PermissionType.MENU,
-      route: 'analysis',
-      component: '/dashboard/analysis/index.tsx',
-    },
+    // {
+    //   id: '9710971640510357',
+    //   parentId: '9100714781927703',
+    //   label: 'sys.menu.analysis',
+    //   name: 'Analysis',
+    //   type: PermissionType.MENU,
+    //   route: 'analysis',
+    //   component: '/dashboard/analysis/index.tsx',
+    // },
   ],
 };
+/** 管理权限 */
 const MANAGEMENT_PERMISSION = {
   id: '0901673425580518',
   parentId: '',
@@ -173,6 +175,7 @@ const MANAGEMENT_PERMISSION = {
     },
   ],
 };
+/** */
 const COMPONENTS_PERMISSION = {
   id: '2271615060673773',
   parentId: '',
@@ -471,15 +474,58 @@ const OTHERS_PERMISSION = [
     component: '/sys/others/blank.tsx',
   },
 ];
-
+/** mock 供应商权限 */
+const SUPPLIER_PERMISSION = {
+  id: '0901673425123726',
+  parentId: '',
+  label: '首营供应管理',
+  name: 'Supplier',
+  icon: 'ic-management',
+  type: PermissionType.CATALOGUE,
+  route: 'supplier',
+  order: 2,
+  children: [
+    {
+      id: '0901673425112377',
+      parentId: '0901673425123726',
+      label: '供应商管理',
+      name: 'supplierManage',
+      icon: 'ic-management',
+      type: PermissionType.MENU,
+      route: 'supplierManage',
+      component: '/supplier/supplierManage/index.tsx',
+    },
+    {
+      id: '0901673425112378',
+      parentId: '0901673425123726',
+      label: '产品管理',
+      name: 'productManage',
+      icon: 'ic-management',
+      type: PermissionType.MENU,
+      route: 'productManage',
+      component: '/supplier/productManage/index.tsx',
+    },
+    {
+      id: '0901673425112379',
+      parentId: '0901673425123726',
+      label: '经销商管理',
+      name: 'saleManage',
+      icon: 'ic-management',
+      type: PermissionType.MENU,
+      route: 'saleManage',
+      component: '/supplier/saleManage/index.tsx',
+    },
+  ],
+};
 export const PERMISSION_LIST = [
   DASHBOARD_PERMISSION,
   MANAGEMENT_PERMISSION,
-  COMPONENTS_PERMISSION,
-  FUNCTIONS_PERMISSION,
-  MENU_LEVEL_PERMISSION,
-  ERRORS_PERMISSION,
-  ...OTHERS_PERMISSION,
+  SUPPLIER_PERMISSION,
+  // COMPONENTS_PERMISSION,
+  // FUNCTIONS_PERMISSION,
+  // MENU_LEVEL_PERMISSION,
+  // ERRORS_PERMISSION,
+  // ...OTHERS_PERMISSION,
 ];
 
 /**

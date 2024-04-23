@@ -33,7 +33,8 @@ const customComponentConfig: ThemeConfig['components'] = {
 const colorPrimarys: {
   [k in ThemeColorPresets]: string;
 } = {
-  default: '#00a76f',
+  // default: '#00a76f',
+  default: '#078DEE',
   cyan: '#078DEE',
   purple: '#7635DC',
   blue: '#2065D1',
