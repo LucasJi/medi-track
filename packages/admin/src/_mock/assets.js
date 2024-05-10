@@ -517,6 +517,28 @@ const SUPPLIER_PERMISSION = {
     },
   ],
 };
+const ORDER_PURCHASE_PERMISSION = {
+  id: '0901673425123727',
+  parentId: '',
+  label: '采购管理',
+  name: 'purchase',
+  icon: 'ic-management',
+  type: PermissionType.CATALOGUE,
+  route: 'purchase',
+  order: 2,
+  children: [
+    {
+      id: '0901673425112377',
+      parentId: '0901673425123727',
+      label: '采购订单',
+      name: 'purchaseOrder',
+      icon: 'ic-management',
+      type: PermissionType.MENU,
+      route: 'purchaseOrder',
+      component: '/purchase/purchaseOrder/index.tsx',
+    },
+  ],
+};
 export const PERMISSION_LIST = [
   DASHBOARD_PERMISSION,
   MANAGEMENT_PERMISSION,
