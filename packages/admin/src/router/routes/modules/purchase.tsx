@@ -7,23 +7,23 @@ import { CircleLoading } from '@/components/loading';
 import { AppRouteObject } from '#/router';
 
 const HomePage = lazy(() => import(`@/pages/orderPurchase/makeOrder`));
-const AntiMakeOrder = lazy(() => import(`@/pages/orderPurchase/antiMakeOrder`));
+const AntiMakeOrder = lazy(() => import(`@/pages/orderPurchase/nonOrderPurchase`));
 const GoodsCheck = lazy(() => import(`@/pages/orderPurchase/goodsCheck`));
 const ReceiptGoods = lazy(() => import(`@/pages/orderPurchase/receiptGoods`));
 const ReturnGoods = lazy(() => import(`@/pages/orderPurchase/returnGoods`));
 const Warehouse = lazy(() => import(`@/pages/orderPurchase/wareHouse`));
-const supplier: AppRouteObject = {
+const purchase: AppRouteObject = {
   order: 1,
-  path: 'supplier',
+  path: 'purchase',
   element: (
     <Suspense fallback={<CircleLoading />}>
       <Outlet />
     </Suspense>
   ),
   meta: {
-    label: 'sys.menu.supplier',
+    label: 'sys.menu.purchase',
     icon: <SvgIcon icon="ic-analysis" className="ant-menu-item-icon" size="24" />,
-    key: '/supplier',
+    key: '/purchase',
   },
   children: [
     {
@@ -63,4 +63,4 @@ const supplier: AppRouteObject = {
     },
   ],
 };
-export default supplier;
+export default purchase;
